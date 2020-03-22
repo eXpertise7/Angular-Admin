@@ -1,0 +1,22 @@
+<h3>Houses</h3>
+
+<table mat-table [dataSource]="houses" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="surname">
+    <th mat-header-cell *matHeaderCellDef> Surname </th>
+    <td mat-cell *matCellDef="let element"> {{element.surname}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Address">
+    <th mat-header-cell *matHeaderCellDef> Address </th>
+    <td mat-cell *matCellDef="let element"> {{element.Address}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="prize">
+    <th mat-header-cell *matHeaderCellDef> Prize </th>
+    <td mat-cell *matCellDef="let element"> {{element.prize | number :'1.2-2'}} {{element.currency}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

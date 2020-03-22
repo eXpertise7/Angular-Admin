@@ -1,0 +1,12 @@
+<form [formGroup]="formGroup" autocomplete="off" class="example-container">
+  <mat-form-field appearance="legacy" class="full-width-container">
+    <mat-label>Removal reason</mat-label>
+    <textarea matInput formControlName="reasonOfRemoval" placeholder="Add a removal reason"></textarea>
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-raised-button (click)="close()">Close</button>
+    <button mat-raised-button color="primary" (click)="save()" class="ml-5">Delete</button>
+  </div>
+</form>
+

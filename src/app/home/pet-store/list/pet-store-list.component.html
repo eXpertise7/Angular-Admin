@@ -1,0 +1,49 @@
+<h3>PetStore</h3>
+
+<button mat-raised-button color="primary" (click)="create()" class="mb-5 mr-5">Add new</button>
+
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Filter pets...">
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="age">
+    <th mat-header-cell *matHeaderCellDef> Age </th>
+    <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="picture">
+    <th mat-header-cell *matHeaderCellDef> Picture </th>
+    <td mat-cell *matCellDef="let element">
+      <img (click)="openDetails(element)" *ngIf="element.picture.endsWith('.jpg') || element.picture.endsWith('.png') || element.picture.endsWith('.jpeg')" src="{{element.picture}}"/>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="breed">
+    <th mat-header-cell *matHeaderCellDef> Breed </th>
+    <td mat-cell *matCellDef="let element"> {{element.breed}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="location">
+    <th mat-header-cell *matHeaderCellDef> Location </th>
+    <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef width="60px"> Actions </th>
+    <td mat-cell *matCellDef="let element">
+      <fa-icon class="action-icon" [icon]="homeService.icons.Edit" (click)="edit(element)"></fa-icon>
+      <fa-icon class="action-icon" style="margin-left: 5px;" [icon]="homeService.icons.Delete" (click)="remove(element)"></fa-icon>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

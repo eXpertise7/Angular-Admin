@@ -1,0 +1,52 @@
+<div *ngIf="petStore && state === 1">
+  <ul>
+    <li>
+      <h2>Name</h2>
+      <span>{{petStore.name}}</span>
+    </li>
+    <li>
+      <h2>Breed</h2>
+      <span>{{petStore.breed}}</span>
+    </li>
+    <li>
+      <h2>Picture</h2>
+      <img *ngIf="petStore.picture.endsWith('.jpg') || petStore.picture.endsWith('.png') || petStore.picture.endsWith('.jpeg')" src="{{petStore.picture}}"/>
+    </li>
+    <li>
+      <h2>Age</h2>
+      <span>{{petStore.age}}</span>
+    </li>
+    <li>
+      <h2>Location</h2>
+      <span>{{petStore.location}}</span>
+    </li>
+
+  </ul>
+
+  <div class="actions">
+    <button mat-raised-button (click)="close()">Close</button>
+    <button mat-raised-button color="primary" (click)="addToFamily()" class="ml-5">Add to family</button>
+  </div>
+
+</div>
+
+<div *ngIf="state === 2">
+
+  <mat-form-field appearance="legacy">
+    <mat-label>Houses (families)</mat-label>
+    <mat-select (selectionChange)="houseSelect($event)">
+      <mat-option *ngFor="let house of houses" [value]="house.id">
+        {{house.surname}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br/>
+
+  <span class="warning" *ngIf="warning">Ova obitelj ima maksimalan broj kučnih ljubimaca (2)</span>
+  <br/>  <br/>
+
+  <div class="actions">
+    <button mat-raised-button (click)="close()">Close</button>
+    <button mat-raised-button color="primary" (click)="createOwnedPet()" class="ml-5">Add</button>
+  </div>
+</div>

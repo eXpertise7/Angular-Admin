@@ -1,0 +1,43 @@
+<form [formGroup]="formGroup" autocomplete="off" class="example-container">
+  <mat-form-field appearance="legacy">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" placeholder="Write name here...">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="legacy">
+    <mat-label>Surname</mat-label>
+    <input matInput formControlName="surname" placeholder="Write surname here...">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="legacy">
+    <mat-label>Date of birth</mat-label>
+    <input formControlName="birthday" matInput [matDatepicker]="birthday">
+    <mat-datepicker-toggle matSuffix [for]="birthday"></mat-datepicker-toggle>
+    <mat-datepicker #birthday></mat-datepicker>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="legacy">
+    <mat-label>School</mat-label>
+    <input matInput formControlName="school" placeholder="Write school here...">
+  </mat-form-field>
+  <br>
+  <div>
+    <mat-label>Work</mat-label>&nbsp;&nbsp;&nbsp;
+    <mat-checkbox color="primary" formControlName="work"></mat-checkbox>
+  </div>
+  <br>
+  <mat-form-field appearance="legacy">
+    <mat-label>Status</mat-label>
+    <input matInput formControlName="status" placeholder="Write status here...">
+  </mat-form-field>
+  <br/>
+
+  <div class="actions">
+    <button mat-raised-button (click)="close()">Close</button>
+    <button mat-raised-button color="primary" (click)="save()" *ngIf="data.State === 2" class="ml-5">Save</button>
+    <button mat-raised-button color="primary" (click)="create()" *ngIf="data.State === 1" class="ml-5">Create</button>
+  </div>
+
+</form>
+
+

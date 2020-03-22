@@ -1,0 +1,35 @@
+<header>
+
+  <div class="header block-desig">
+      <!--  <img src="">  -->   <!--link of logo picture-->
+  </div>
+
+</header>
+
+
+<main>
+
+  <div class="sidebar block-desig">
+      <ul>
+        <li><a [routerLink]="['/home/family']">Family</a></li>
+        <li><a [routerLink]="['/home/pets']">Pets</a></li>
+        <li><a [routerLink]="['/home/houses']">Houses</a></li>
+        <li><a [routerLink]="['/home/petstore']">PetStore</a></li>
+      </ul>
+  </div>
+
+  <div class="main block-desig">
+      <router-outlet></router-outlet>
+  </div>
+
+</main>
+
+
+<footer>
+
+  <div class="footer block-desig">
+    <span>Version: 1.0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+    <span>© 2020. All Rights Reserved</span>
+  </div>
+
+</footer>

@@ -1,0 +1,44 @@
+.mat-form-field {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+
+  li {
+    border-bottom: 1px solid #c8dfff;
+    padding: 10px 0;
+
+    h2 {
+      color: #3770a5;
+      font-size: 18px;
+      margin: 0;
+      padding: 0;
+    }
+
+    span {
+      padding: 0;
+    }
+
+    img {
+      max-height: 100px;
+    }
+  }
+
+  li:last-of-type {
+    border-bottom: none !important;
+  }
+}
+
+.warning {
+  padding: 10px 0;
+  color: red;
+}

@@ -1,0 +1,41 @@
+<form [formGroup]="formGroup" autocomplete="off" class="example-container">
+  <mat-form-field appearance="legacy">
+    <mat-label>Pet</mat-label>
+    <mat-select (selectionChange)="petSelect($event)">>
+      <mat-option *ngFor="let pet of petStoreList" [value]="pet.id">
+        {{pet.name}} | age: {{pet.age}} | breed: {{pet.breed}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br/>
+<!--  <mat-form-field appearance="legacy">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" placeholder="Write name here...">
+  </mat-form-field>
+  <br/>
+  <mat-form-field appearance="legacy">
+    <mat-label>Breed</mat-label>
+    <input matInput formControlName="breed" placeholder="Write breed here...">
+  </mat-form-field>
+  <br/>
+  <mat-form-field appearance="legacy">
+    <mat-label>Age</mat-label>
+    <input type="number" matInput formControlName="age" placeholder="Write age here...">
+  </mat-form-field>
+  <br/>-->
+  <mat-form-field appearance="legacy">
+    <mat-label>FamilyID</mat-label>
+    <input type="number" matInput formControlName="familyId" placeholder="FamilyID">
+  </mat-form-field>
+  <br/>
+
+  <span class="warning" *ngIf="warning">Ova obitelj ima maksimalan broj kučnih ljubimaca (2)</span>
+  <br/>  <br/>
+
+  <div class="actions">
+    <button mat-raised-button (click)="close()">Close</button>
+    <button mat-raised-button color="primary" (click)="save()" *ngIf="data.State === 2" class="ml-5">Save</button>
+    <button mat-raised-button color="primary" (click)="create()" *ngIf="data.State === 1" class="ml-5">Create</button>
+  </div>
+
+</form>
